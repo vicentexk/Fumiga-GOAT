@@ -29,6 +29,43 @@ repetições, datas, branches, checklists e notas históricas foram preservados.
 > Divergências permanecem visíveis, sem apagar conteúdo. O que efetivamente
 > funciona deve ser confirmado por testes e inspeção no preview.
 
+## Registro — Direção aprovada para aventura de exploração centrada na protagonista (2026-10-08, branch arena/ad8884de)
+
+**Status: documento de design aprovado como base; nenhuma alteração de gameplay ou lore canônica nesta entrega.** O usuário pediu uma mudança de gênero: não quer mais um roguelite e está insatisfeito com o HUD/gameplay; prefere aventura/exploração e sprites de gameplay simples, em estilo 8-bit, preservando as demais telas. Depois de pesquisa e perguntas de decisão, aprovou formalizar o design no repositório **sem código por enquanto**.
+
+### Decisões registradas
+
+- **Gênero:** aventura top-down de ação, exploração e história; remover o ciclo roguelite, runs reiniciáveis, ondas aleatórias e drafts obrigatórios na direção futura.
+- **Protagonista:** uma formiga básica/generalista, capaz de carregar objetos e lutar, cuja história é o foco narrativo. Ela ganha capacidades gradualmente durante a campanha; espécie, aparência e mecânica exata de progressão ainda serão definidas.
+- **Elenco:** demais formigas são NPCs e podem ser recrutadas como ajudantes. Só **um ajudante ativo** acompanha a protagonista por vez.
+- **Cânone central:** a colônia sobe para escapar da ameaça. A ameaça é a **Névoa** existente, entendida visualmente como fumaça; o nome não será substituído nesta decisão. A rainha e a colônia passam a ser personagens acompanhados pela protagonista.
+- **Combate/exploração:** ambos devem ter peso; o combate deve ser complexo e legível, e a exploração ampla, com áreas planejadas, desvios e segredos — não hordas aleatórias.
+- **Primeira entrega de gameplay:** capítulo completo da Planície, com várias áreas, desvio, recrutamento e o Tamborilador como chefe planejado. A Tecelã foi sugerida como primeira ajudante, mas não aprovada como escolha final de conteúdo.
+- **HUD:** minimalista; proposta de manter apenas vida, objeto carregado e ação/habilidade atual, deixando mapa/diário sob demanda.
+- **Arte:** sprites de gameplay com aparência 8-bit mais simples; manter cenários detalhados e preservar visualmente título, carregamentos, menus, árvore, cutscenes e demais telas.
+- **Escopo atual:** criar um documento de direção; sem código, assets ou reescrita de `LORE.md` nesta entrega.
+
+### Pesquisa de inspiração (Regra 2)
+
+- **TUNIC:** mundo interligado, páginas, pistas e segredos; adaptação proposta para diário da protagonista e descobertas que ensinam o mundo — [Finji](https://finji.co/games/tunic/).
+- **A Short Hike:** trilhas principais, exploração opcional e tesouros; adaptação para desvios e descobertas calmas entre combates — [site oficial](https://ashorthike.com/).
+- **Hyper Light Drifter:** exploração de mundo arruinado, conhecimento perdido e caminhos ramificados; adaptação para narrativa ambiental, sem copiar dificuldade ou identidade — [Steam](https://store.steampowered.com/app/257850/Hyper_Light_Drifter/).
+
+### Documento e limites
+
+- Novo documento: [`DOCUMENTO_DIRECAO_NOVA_AVENTURA.md`](DOCUMENTO_DIRECAO_NOVA_AVENTURA.md), com visão, pilares, capítulo proposto, direção visual, referências, impacto técnico, salvaguardas e pontos ainda não decididos.
+- Este registro **não** declara a aventura implementada. O jogo que está no repositório continua com sua gameplay atual até autorização e implementação futuras.
+- `LORE.md`, código, assets, saves e a lista offline de assets permaneceram intactos. Nenhum dos seis documentos originais incorporados no MEGA foi editado; tamanho/hash dos blocos originais não devem mudar.
+- Pendências de design antes do código: definir como a protagonista muda/evolui, espécie e arte final, comandos de combate, identidade da primeira ajudante, estrutura detalhada das áreas e compatibilidade dos saves atuais.
+
+### Verificação desta entrega
+
+- `node game/test/docs.mjs`: passou; os seis documentos originais seguem íntegros, **113.359 bytes** e hashes preservados.
+- `npm run test:quick`: **29/29** testes passaram.
+- `npm run inspect`: inspeção Chromium PC + mobile, TITLE/menus/árvore/ninho e seis mapas; **sem erros JS, 404 ou glifos ausentes**, RUN a 60 FPS nos seis mapas.
+- Preview local `http://127.0.0.1:8000/game/`: HTTP 200. Capturas PC/mobile de título e gameplay atual abertas para inspeção. A gameplay observada é a versão preexistente; nenhuma alteração foi feita nela.
+- `git diff --check`: sem erros. Nenhuma mudança lógica, de assets ou de saves nesta etapa.
+
 ## Registro — Dica da cutscene por plataforma + área PULAR no toque e Noite Branca em 4+4+4 (2026-10-05, branch arena/01a10bcf)
 
 **Status: implementado e verificado (PC e mobile). Encerra os DOIS trabalhos sem decisão abertos em
